@@ -14,9 +14,20 @@ class App extends Component {
       type:""
     }
     this.changeMessage=this.changeMessage.bind(this);
+    this.insertData=this.insertData.bind(this);
+    this.clearData=this.clearData.bind(this);
   }
   changeMessage(){
     this.setState({message:"Like"});
+  }
+  insertData(){
+    var item = "Item" + this.state.data.length;
+    var myArray = this.state.data;
+    myArray.push(item);
+    this.setState({data:myArray});
+  }
+  clearData(){
+    this.setState({data:[]});
   }
   render(){
     var mystyle = {
@@ -28,6 +39,9 @@ class App extends Component {
             <Header/>
             <Content title="Being to react" name="Sumet Funan" study="React"/>
             <ButtonLike/>
+            <h3>{this.state.data}</h3>
+            <button onClick={this.insertData}>Insert</button>
+            <button onClick={this.clearData}>Clear</button>
             <Footer/>
         </div>
     );
