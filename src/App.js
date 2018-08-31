@@ -21,7 +21,7 @@ class App extends Component {
     this.setState({message:"Like"});
   }
   insertData(){
-    var item = "Item" + this.state.data.length;
+    var item = "Item" + (this.state.data.length + 1);
     var myArray = this.state.data;
     myArray.push(item);
     this.setState({data:myArray});
@@ -39,9 +39,11 @@ class App extends Component {
             <Header/>
             <Content title="Being to react" name="Sumet Funan" study="React"/>
             <ButtonLike/>
+            <div>
+              <button onClick={this.insertData}>Insert</button>
+              <button onClick={this.clearData}>Clear</button>
+            </div>
             <h3>{this.state.data}</h3>
-            <button onClick={this.insertData}>Insert</button>
-            <button onClick={this.clearData}>Clear</button>
             <Footer/>
         </div>
     );
