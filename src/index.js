@@ -1,7 +1,8 @@
-/*import React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';*/
+import App from './App';
 import {createStore,combineReducers} from 'redux';
+import {Provider} from 'react-redux'
 
 const initialState={
     result:15000,
@@ -46,35 +47,18 @@ const employeeReducer = (state=initialState,action) => {
     return state;
 }
 
-const store=createStore(combineReducers({employeeReducer,userReducer}));
+const store=createStore(combineReducers({emp:employeeReducer,user:userReducer}));
 
 store.subscribe(()=>{
     console.log("Update store:", store.getState());
 })
 
-store.dispatch({
-    type:"ADD",
-    payload:1555
-});
 
-store.dispatch({
-    type:"SUBTRACT",
-    payload:1555
-});
-
-store.dispatch({
-    type:"setName",
-    payload:"Funan"
-});
-
-store.dispatch({
-    type:"setAge",
-    payload:19
-});
-
-/*
 ReactDOM.render(
-    <App />, 
+    <Provider store={store}>
+        <App />
+    </Provider>
+    , 
     document.getElementById('root')
 );
-*/
+

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Content from './Content';
-import {Footer} from './Footer';
-import ButtonLike from './LikeButton';
+import User from './User';
+import {connect} from 'react-redux';
 import './App.css';
 
 class App extends Component {
@@ -12,10 +10,26 @@ class App extends Component {
   render(){
     return(
         <div>
-            
+            <User username={this.props.user.name}/>
+            <button onClick={()=>this.props.setName("Wellcome")}>ChangeName</button>
         </div>
     );
   }
 }
-
-export default App;
+const mapStatetoProps=(state)=>{
+  return {
+    user: state.user,
+    emp: state.emp
+  };
+}
+const mapDispatchtoProps=(state)=>{
+  return {
+    setName:(name)=>{
+      state.dispatch({
+        type:"setName",
+        payload:name
+      });
+    }
+  };
+}
+export default connect(mapStatetoProps,mapDispatchtoProps)(App);
