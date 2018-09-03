@@ -33,10 +33,6 @@ class App extends Component {
     this.setState({type:event.target.value});
   }
   render(){
-    var mystyle = {
-      fontSize:100,
-      color:'#FF0000'
-    }
     return(
         <div>
             <Header/>
