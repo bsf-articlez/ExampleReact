@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {CommentForm} from './CommentForm';
-import {ShowComment} from './ShowComment';
+import {CommentForm} from './Contents/CommentForm';
+import {ShowComment} from './Contents/ShowComment';
 
 class App extends Component {
   render() {
