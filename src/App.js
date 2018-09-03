@@ -29,6 +29,9 @@ class App extends Component {
   clearData(){
     this.setState({data:[]});
   }
+  onChange(event){
+    this.setState({type:event.target.value});
+  }
   render(){
     var mystyle = {
       fontSize:100,
@@ -44,6 +47,9 @@ class App extends Component {
               <button onClick={this.clearData}>Clear</button>
             </div>
             <h3>{this.state.data}</h3>
+            <br/><br/>
+            <input type="text" onChange={this.onChange.bind(this)}></input>
+            <h2>Wellcome: {this.state.type}</h2>
             <Footer/>
         </div>
     );
